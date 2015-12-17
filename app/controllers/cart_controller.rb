@@ -1,4 +1,5 @@
 class CartController < ApplicationController
+before_action :authenticate_user!, except: [:index]  #this will prevent customer from addings to the cart until after sign in or sign up
 def add
    id = params[:id]
       # if the cart has already been created, use the existing cart else create a new cart
